@@ -1,10 +1,9 @@
 version: 2.1
- 
+
 executors:
   self-hosted-executor:
-    docker:
-      - image: circleci/node:latest
-    resource_class: shadabcircle_ci/circleci_shadab
+    machine:
+      resource_class: shadabcircle_ci/circleci_shadab
 
 jobs:
   test:

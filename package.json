@@ -1,7 +1,7 @@
 {
   "name": "parallel-test-project",
   "version": "1.0.0",
-  "main": "index.js",  // Remove the comment here
+  "main": "index.js",  
   "scripts": {
     "test": "jest --ci"
   },

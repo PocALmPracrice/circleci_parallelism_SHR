@@ -14,7 +14,9 @@ jobs:
       - checkout
       - run:
           name: "Install Dependencies"
-          command: npm install
+          command: |
+            npm install
+            npm install --save-dev jest-junit  # Ensure jest-junit is installed
       - run:
           name: "Run Tests and Generate Results"
           command: |

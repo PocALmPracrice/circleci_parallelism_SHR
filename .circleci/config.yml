@@ -9,7 +9,7 @@ executors:
 jobs:
   test:
     executor: self-hosted-executor
-    parallelism: 2  # Run this job in parallel across two containers
+    parallelism: 3  # Run this job in parallel across two containers
     steps:
       - checkout
       - run:

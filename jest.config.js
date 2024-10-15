@@ -1,6 +1,6 @@
 module.exports = {
-  // Other configurations...
-  testResultsProcessor: 'jest-junit', // if you are using jest-junit for JUnit reports
+  // Other Jest configurations...
+  testResultsProcessor: 'jest-junit', // Specify the processor
   reporters: [
     'default',
     ['jest-junit', { outputDirectory: 'test-results', outputName: 'results.xml' }]

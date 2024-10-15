@@ -2,8 +2,9 @@ version: 2.1
 
 executors:
   self-hosted-executor:
-    machine:
-      resource_class: shadabcircle_ci/circleci_shadab
+    docker:
+      - image: circleci/node:16  # Pre-installed Node.js and npm
+    resource_class: medium
 
 jobs:
   test:
@@ -11,16 +12,6 @@ jobs:
     parallelism: 2  # Run this job in parallel across two containers
     steps:
       - checkout
-      - run:
-          name: "Install Node.js and npm"
-          command: |
-            curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-      - run:
-          name: "Verify Node.js and npm Installation"
-          command: |
-            node --version
-            npm --version
       - run:
           name: "Install Dependencies"
           command: npm install

@@ -1,0 +1,12 @@
+{
+    "name": "parallel-test-project",
+    "version": "1.0.0",
+    "main": "index.js",  # Specifies the entry point
+    "scripts": {
+      "test": "jest --ci"
+    },
+    "devDependencies": {
+      "jest": "^29.0.0"
+    }
+  }
+  

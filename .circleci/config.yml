@@ -1,0 +1,31 @@
+version: 2.1
+
+executors:
+  self-hosted-executor:
+    docker:
+      - image: circleci/node:latest
+    resource_class: shadabcircle_ci/circleci_shadab
+
+jobs:
+  test:
+    executor: self-hosted-executor
+    parallelism: 2  # Run this job in parallel across two containers
+    steps:
+      - checkout
+      - run:
+          name: "Install Dependencies"
+          command: npm install
+      - run:
+          name: "Run Tests in Parallel"
+          command: |
+            npx jest --ci --testLocationInResults --runInBand --coverage
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+
+workflows:
+  version: 2
+  parallel_tests:
+    jobs:
+      - test

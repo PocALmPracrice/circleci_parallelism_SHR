@@ -16,9 +16,13 @@ jobs:
           name: "Install Dependencies"
           command: npm install
       - run:
-          name: "Run Tests in Parallel"
+          name: "Run Tests and Generate Results"
           command: |
-            npx jest --ci --testLocationInResults --runInBand --coverage
+            mkdir -p test-results
+            npx jest --ci --testLocationInResults --runInBand --coverage --outputFile=test-results/results.json
+      - run:
+          name: "Check Test Results"
+          command: ls -l test-results
       - store_test_results:
           path: test-results
       - store_artifacts:

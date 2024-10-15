@@ -19,7 +19,7 @@ jobs:
           name: "Run Tests and Generate Results"
           command: |
             mkdir -p test-results
-            npx jest --ci --testLocationInResults --runInBand --coverage --outputFile=test-results/results.json
+            npx jest --ci --testLocationInResults --runInBand --coverage
       - run:
           name: "Check Test Results"
           command: ls -l test-results
